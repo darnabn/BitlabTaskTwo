@@ -4,6 +4,7 @@ import com.example.demo.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -21,10 +22,10 @@ public class HomeController {
     @GetMapping(value="/students")
     public String studentList(Model model){
         model.addAttribute("students", studentService.getAllStudents());
-        return "studetns";
+        return "students";
     }
 
-    @GetMapping(value="/add-student")
+    @PostMapping(value="/add-student")
     public String addStudent(
             @RequestParam String name,
             @RequestParam String surname,
